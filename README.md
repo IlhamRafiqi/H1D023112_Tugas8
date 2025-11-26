@@ -48,8 +48,8 @@ Aplikasi mobile untuk manajemen produk toko yang dibangun menggunakan Flutter. A
 - Warning dialog untuk error handling
 
 ## Screenshot Aplikasi
-<img width="300" alt="image" src="https://github.com/user-attachments/assets/0dde9ec1-802d-4b7a-a182-8b684618e851" />
-<img width="300" alt="image" src="https://github.com/user-attachments/assets/e2a5fd1a-c627-412d-9b7c-0543be663928" />
-<img width="300" alt="image" src="https://github.com/user-attachments/assets/5b46d694-d1e6-4578-b662-a750f7c38598" />
-<img width="300" alt="image" src="https://github.com/user-attachments/assets/cdc15f78-4d82-4e48-8db3-09fb5e3a7067" />
-<img width="300" alt="image" src="https://github.com/user-attachments/assets/69556a16-6eaf-4664-84f4-8d59250665cb" />
+![Tampilan Aplikasi](registrasi.png)
+![Tampilan Aplikasi](login.png)
+![Tampilan Aplikasi](listproduk.png)
+![Tampilan Aplikasi](detailproduk.png)
+![Tampilan Aplikasi](tambahproduk.png)
