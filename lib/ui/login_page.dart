@@ -85,9 +85,6 @@ class _LoginPageState extends State<LoginPage> {
 
     Widget _buttonLogin() {
         return ElevatedButton(
-            child: _isLoading
-                ? const SizedBox(width: 20, height: 20, child: CircularProgressIndicator(strokeWidth: 2))
-                : const Text('Login'),
             onPressed: _isLoading
                 ? null
                 : () async {
@@ -104,6 +101,9 @@ class _LoginPageState extends State<LoginPage> {
                         MaterialPageRoute(builder: (context) => const ProdukPage()),
                     );
                 },
+            child: _isLoading
+                ? const SizedBox(width: 20, height: 20, child: CircularProgressIndicator(strokeWidth: 2))
+                : const Text('Login'),
         );
     }
 

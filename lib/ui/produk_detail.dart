@@ -1,16 +1,17 @@
 import 'package:flutter/material.dart';
-import '../model/produk.dart';
-import 'produk_form.dart';
-import 'produk_page.dart';
-import '../widget/warning_dialog.dart';
-import '../bloc/produk_bloc.dart';
+import 'package:tokokita/bloc/produk_bloc.dart';
+import 'package:tokokita/model/produk.dart';
+import 'package:tokokita/ui/produk_form.dart';
+import 'package:tokokita/ui/produk_page.dart';
+import 'package:tokokita/widget/warning_dialog.dart';
 
 // ignore: must_be_immutable
 class ProdukDetail extends StatefulWidget {
   Produk? produk;
-  ProdukDetail({Key? key, this.produk}) : super(key: key);
+  ProdukDetail({super.key, this.produk});
+
   @override
-  State<ProdukDetail> createState() => _ProdukDetailState();
+  _ProdukDetailState createState() => _ProdukDetailState();
 }
 
 class _ProdukDetailState extends State<ProdukDetail> {
@@ -19,9 +20,7 @@ class _ProdukDetailState extends State<ProdukDetail> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Detail Produk Ilham'),
-        backgroundColor: Colors.grey,
-        ),
-      
+      ),
       body: Center(
         child: Column(
           children: [
@@ -37,13 +36,16 @@ class _ProdukDetailState extends State<ProdukDetail> {
               "Harga : Rp. ${widget.produk!.hargaProduk.toString()}",
               style: const TextStyle(fontSize: 18.0),
             ),
-            _tombolHapusEdit(),
+            _tombolHapusEdit()
           ],
         ),
       ),
     );
   }
 
+  // ================================
+  // TOMBOL EDIT & DELETE
+  // ================================
   Widget _tombolHapusEdit() {
     return Row(
       mainAxisSize: MainAxisSize.min,
@@ -55,12 +57,15 @@ class _ProdukDetailState extends State<ProdukDetail> {
             Navigator.push(
               context,
               MaterialPageRoute(
-                builder: (context) => ProdukForm(produk: widget.produk!),
+                builder: (context) => ProdukForm(
+                  produk: widget.produk!,
+                ),
               ),
             );
           },
         ),
-        // Tombol Hapus
+
+        // Tombol Delete
         OutlinedButton(
           child: const Text("DELETE"),
           onPressed: () => confirmHapus(),
@@ -69,19 +74,24 @@ class _ProdukDetailState extends State<ProdukDetail> {
     );
   }
 
+  // ================================
+  // KONFIRMASI HAPUS
+  // ================================
   void confirmHapus() {
     AlertDialog alertDialog = AlertDialog(
       content: const Text("Yakin ingin menghapus data ini?"),
       actions: [
-        //tombol hapus
+        // Tombol YA (hapus)
         OutlinedButton(
           child: const Text("Ya"),
           onPressed: () {
             ProdukBloc.deleteProduk(id: int.parse(widget.produk!.id!)).then(
               (value) => {
                 Navigator.of(context).push(
-                  MaterialPageRoute(builder: (context) => const ProdukPage()),
-                ),
+                  MaterialPageRoute(
+                    builder: (context) => const ProdukPage(),
+                  ),
+                )
               },
               onError: (error) {
                 showDialog(
@@ -94,13 +104,18 @@ class _ProdukDetailState extends State<ProdukDetail> {
             );
           },
         ),
-        //tombol batal
+
+        // Tombol Batal
         OutlinedButton(
           child: const Text("Batal"),
           onPressed: () => Navigator.pop(context),
         ),
       ],
     );
-    showDialog(builder: (context) => alertDialog, context: context);
+
+    showDialog(
+      builder: (context) => alertDialog,
+      context: context,
+    );
   }
 }
