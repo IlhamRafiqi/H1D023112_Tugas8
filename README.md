@@ -1,3 +1,5 @@
+Mohon maaf mas yang pertemuan 11 saya sudah coba berkali kali dan perbaiki yang sekiranya salah tetap tidak bisa sesuai dengan tampilan yang ada di modul mas, saya bingung salahnya ada dibagian mana, saya sudah coba semua cara mas. untuk sementara readme masih sama kayak pertemuan 10 mas, untuk pertemuan 11 untuk login dan registrasi saja tidak muncul pop up dan tidak berpindah halaman. Mohon Maaf mas🙏
+
 # TokoKita - Aplikasi Manajemen Produk
 
 ## Deskripsi
